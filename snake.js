@@ -66,17 +66,21 @@ function addSnake() {
   
    if ( direct==="DOWN") {
       snake.push({x:snake[snake.length-1]["x"],y:snake[snake.length-1]["y"]-25});
+      food={x:Math.floor(Math.random()*22)*25, y:Math.floor(Math.random()*22)*25};
 }
 
  else if (direct==="UP") {
     snake.push({x:snake[snake.length-1]["x"],y:snake[snake.length-1]["y"]+25});
+    food={x:Math.floor(Math.random()*22)*25, y:Math.floor(Math.random()*22)*25};
  }
  else if (direct==="RIGHT") {
  snake.push({x:snake[snake.length-1]["x"]+25,y:snake[snake.length-1]["y"]});
+ food={x:Math.floor(Math.random()*22)*25, y:Math.floor(Math.random()*22)*25};
 
    
 }
 else if (direct==="LEFT") {
  snake.push({x:snake[snake.length-1]["x"]-25,y:snake[snake.length-1]["y"]}); 
+ food={x:Math.floor(Math.random()*22)*25, y:Math.floor(Math.random()*22)*25};
 }
 }

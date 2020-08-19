@@ -6,10 +6,10 @@ let food={x:Math.floor(Math.random()*600,
 y:Math.floor(Math.random()*600};
 let snake= [{x:275, y:275}];
 let snakeHead=snake[0];
+let direct;
 canv.style.border="2px solid black";
 
 
-let direct;
 document.addEventListener("keydown",move);
 setInterval(drawIt,30);
 
@@ -62,9 +62,8 @@ function drawIt() {
 }
 }
 
-function addSnake() {
-   
-   
+function addSnake() { 
+  
    if ( direct==="DOWN") {
       snake.push({x:snake[snake.length-2]["x"],y:snake[snake.length-2]["y"]-25});
 }

@@ -1,4 +1,5 @@
-//box geht 22mal in eine länge(550/25)
+//box geht 22mal in eine länge(550/25) 
+// Fix movement+ adding to snake not working properly+ hitting left side and top side does not end game->fix conditional
 const canv=document.getElementById("canvas");
 const ctx=canv.getContext("2d");
 let imgName= new Image();

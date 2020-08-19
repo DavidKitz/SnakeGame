@@ -2,8 +2,8 @@
 const canv=document.getElementById("canvas");
 const ctx=canv.getContext("2d");
 let imgName= new Image();
-let food={x:Math.floor(Math.random()*600, 
-y:Math.floor(Math.random()*600};
+let food={x:Math.floor(Math.random()*22)*25, 
+y:Math.floor(Math.random()*22)*25};
 let snake= [{x:275, y:275}];
 let snakeHead=snake[0];
 let direct;
@@ -14,29 +14,29 @@ document.addEventListener("keydown",move);
 setInterval(drawIt,30);
 
 function move(event) {
-if (event.keyCode===40 && direct!=="DOWN") {
-   for (let i=0;i<snake.length;i++} {
+if (event.keyCode===38 && direct!=="DOWN") {
+   for (let i=0;i<snake.length;i++) {
     direct="UP";
-    snake[i]["y"]+=25;
+    snake[i]["y"]-=25;
     drawIt();
 }
 }
- else if (event.keyCode===38 && direct!=="UP") {
-   for (let i=0;i<snake.length;i++} {
-    direct="DOWN";
-    snake[i]["y"]-=25;
+ else if (event.keyCode===40 && direct!=="UP") {
+   for (let i=0;i<snake.length;i++) {
+    direct="DOWN")
+    snake[i]["y"]+=25;
     drawIt();
  }
  }
  else if (event.keyCode===37 && direct!=="RIGHT") {
-   for (let i=0;i<snake.length;i++} {
+   for (let i=0;i<snake.length;i++) {
     direct="LEFT";
     snake[i]["x"]-=25;
     drawIt();
  }
 }
  else if (event.keyCode===39 && direct!=="LEFT") {
-   for (let i=0;i<snake.length;i++} {
+   for (let i=0;i<snake.length;i++) {
     direct="RIGHT";
     snake[i]["x"]+=25;
     drawIt();
@@ -65,18 +65,18 @@ function drawIt() {
 function addSnake() { 
   
    if ( direct==="DOWN") {
-      snake.push({x:snake[snake.length-2]["x"],y:snake[snake.length-2]["y"]-25});
+      snake.push({x:snake[snake.length-1]["x"],y:snake[snake.length-1]["y"]-25});
 }
 
  else if (direct==="UP") {
-    snake.push({x:snake[snake.length-2]["x"],y:snake[snake.length-2]["y"]+25});
+    snake.push({x:snake[snake.length-1]["x"],y:snake[snake.length-1]["y"]+25});
  }
  else if (direct==="RIGHT") {
- snake.push({x:snake[snake.length-2]["x"]+25,y:snake[snake.length-2]["y"]});
+ snake.push({x:snake[snake.length-1]["x"]+25,y:snake[snake.length-1]["y"]});
 
    
 }
 else if (direct==="LEFT") {
- snake.push({x:snake[snake.length-2]["x"]-25,y:snake[snake.length-2]["y"]}); 
+ snake.push({x:snake[snake.length-1]["x"]-25,y:snake[snake.length-1]["y"]}); 
 }
 }

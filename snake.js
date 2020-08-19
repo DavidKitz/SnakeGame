@@ -2,57 +2,82 @@
 const canv=document.getElementById("canvas");
 const ctx=canv.getContext("2d");
 let imgName= new Image();
-let snake= [];
+let food={x:Math.floor(Math.random()*600, 
+y:Math.floor(Math.random()*600};
+let snake= [{x:275, y:275}];
+let snakeHead=snake[0];
 canv.style.border="2px solid black";
 
-let box={x:275, y:275}
 
 let direct;
 document.addEventListener("keydown",move);
 setInterval(drawIt,30);
 
 function move(event) {
-if (event.keyCode===40) {
-   
+if (event.keyCode===40 && direct!=="DOWN") {
+   for (let i=0;i<snake.length;i++} {
     direct="UP";
-    box["y"]+=25;
+    snake[i]["y"]+=25;
     drawIt();
-
 }
- else if (event.keyCode===38) {
-   
+}
+ else if (event.keyCode===38 && direct!=="UP") {
+   for (let i=0;i<snake.length;i++} {
     direct="DOWN";
-    box["y"]-=25;
+    snake[i]["y"]-=25;
     drawIt();
-    
  }
- else if (event.keyCode===37) {
-   
+ }
+ else if (event.keyCode===37 && direct!=="RIGHT") {
+   for (let i=0;i<snake.length;i++} {
     direct="LEFT";
-    box["x"]-=25;
+    snake[i]["x"]-=25;
     drawIt();
-    
+ }
 }
- else if (event.keyCode===39) {
-   
+ else if (event.keyCode===39 && direct!=="LEFT") {
+   for (let i=0;i<snake.length;i++} {
     direct="RIGHT";
-    box["x"]+=25;
+    snake[i]["x"]+=25;
     drawIt();
-    
+ }
  }
 }
 function clear (c) {
    c.clearRect(0,0,600,600);
 }
 function drawIt() {
-   if (box["x"]>=600) {
-
+   if (snake[0]["x"]>=600) {
       return;
    }
-   if (box["y"]>=600) {
+   if (snake[0]["y"]>=600) {
       return;
+   }
+   if (snake[0]["x"]===food["x"] && snake[0]["y"]===food["y"]){
+      addSnake();
    }
    clear(ctx);
-   ctx.fillRect(box["x"], box["y"], '25', '25');
+   for (let i=0;i<snake.length;i++) {
+   ctx.fillRect(snake[i]["x"], snake[i]["y"], '25', '25');
+}
+}
 
+function addSnake() {
+   
+   
+   if ( direct==="DOWN") {
+      snake.push({x:snake[snake.length-2]["x"],y:snake[snake.length-2]["y"]-25});
+}
+
+ else if (direct==="UP") {
+    snake.push({x:snake[snake.length-2]["x"],y:snake[snake.length-2]["y"]+25});
+ }
+ else if (direct==="RIGHT") {
+ snake.push({x:snake[snake.length-2]["x"]+25,y:snake[snake.length-2]["y"]});
+
+   
+}
+else if (direct==="LEFT") {
+ snake.push({x:snake[snake.length-2]["x"]-25,y:snake[snake.length-2]["y"]}); 
+}
 }

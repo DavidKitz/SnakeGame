@@ -1,5 +1,5 @@
 //box geht 22mal in eine länge(550/25) 
-// Fix movement+ adding to snake not working properly+ hitting left side and top side does not end game->fix conditional
+// Fix movement+ adding to snake not working properly
 const canv=document.getElementById("canvas");
 const ctx=canv.getContext("2d");
 let imgName= new Image();
@@ -48,16 +48,17 @@ function clear (c) {
    c.clearRect(0,0,600,600);
 }
 function drawIt() {
-   if (snake[0]["x"]>=600) {
+   if (snake[0]["x"]>=600||snake[0]["x"]<=-25 ) {
       return;
    }
-   if (snake[0]["y"]>=600) {
+   if (snake[0]["y"]>=600||snake[0]["y"]<=-25) {
       return;
    }
    if (snake[0]["x"]===food["x"] && snake[0]["y"]===food["y"]){
       addSnake();
    }
    clear(ctx);
+   ctx.fillRect(food["x"], food['y'],25,25);
    for (let i=0;i<snake.length;i++) {
    ctx.fillRect(snake[i]["x"], snake[i]["y"], '25', '25');
 }
@@ -65,7 +66,7 @@ function drawIt() {
 
 function addSnake() { 
   
-   if ( direct==="DOWN") {
+if ( direct==="DOWN") {
       snake.push({x:snake[snake.length-1]["x"],y:snake[snake.length-1]["y"]-25});
       food={x:Math.floor(Math.random()*22)*25, y:Math.floor(Math.random()*22)*25};
 }

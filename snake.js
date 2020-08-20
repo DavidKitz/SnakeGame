@@ -24,7 +24,7 @@ if (event.keyCode===38 && direct!=="DOWN") {
 }
  else if (event.keyCode===40 && direct!=="UP") {
    for (let i=0;i<snake.length;i++) {
-    direct="DOWN")
+    direct="DOWN";
     snake[i]["y"]+=25;
     drawIt();
  }

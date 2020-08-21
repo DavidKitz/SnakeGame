@@ -4,8 +4,8 @@ const canv=document.getElementById("canvas");
 const ctx=canv.getContext("2d");
 let imgName= new Image();
 let food={x:Math.floor(Math.random()*22)*25, 
-y:Math.floor(Math.random()*22)*25};
-let snake= [{x:275, y:275}];
+y:Math.floor(Math.random()*20)*25};
+let snake= [{x:275, y:275},{x:300,y:275}];
 let snakeHead=snake[0];
 let direct;
 canv.style.border="2px solid black";
@@ -16,9 +16,11 @@ setInterval(drawIt,30);
 
 function move(event) {
 if (event.keyCode===38 && direct!=="DOWN") {
+   snakeHead["y"]-=25;
    for (let i=0;i<snake.length;i++) {
     direct="UP";
-    snake[i]["y"]-=25;
+    snake.unshift
+   
     drawIt();
 }
 }
@@ -58,16 +60,20 @@ function drawIt() {
       addSnake();
    }
    clear(ctx);
-   ctx.fillRect(food["x"], food['y'],25,25);
+   ctx.beginPath();
+   ctx.arc(food["x"], food['y'],12.5,0,Math.PI * 2);
+   ctx.stroke();
    for (let i=0;i<snake.length;i++) {
    ctx.fillRect(snake[i]["x"], snake[i]["y"], '25', '25');
+   ctx.fillStyle = (i===0) ? "green":"black";
 }
+   
 }
 
 function addSnake() { 
   
 if ( direct==="DOWN") {
-      snake.push({x:snake[snake.length-1]["x"],y:snake[snake.length-1]["y"]-25});
+      snake.push({x:snake[snake.length-1]["x"],y:snake[snake.length-1]["y"]-50*snake.length});
       food={x:Math.floor(Math.random()*22)*25, y:Math.floor(Math.random()*22)*25};
 }
 
@@ -82,7 +88,7 @@ if ( direct==="DOWN") {
    
 }
 else if (direct==="LEFT") {
- snake.push({x:snake[snake.length-1]["x"]-25,y:snake[snake.length-1]["y"]}); 
+ snake.push({x:snake[snake.length-1]["x"]+25,y:snake[snake.length-1]["y"]}); 
  food={x:Math.floor(Math.random()*22)*25, y:Math.floor(Math.random()*22)*25};
 }
 }

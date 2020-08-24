@@ -21,7 +21,7 @@ checkHighscore();
 
 
 document.addEventListener("keydown",move);
-setInterval(drawIt,60);
+setInterval(drawIt,30);
 
  function move(event) {
  if (event.keyCode===38 && direct!=="DOWN") { 
@@ -59,9 +59,14 @@ function drawIt() {
       checkHighscore();
       return;
    }
-   if (snake[0]["x"]===food["x"] && snake[0]["y"]===food["y"]){
+   if (getDistance(snake[0].x,snake[0].y,food.x,food.y)<30) {
       addSnake();
    }
+   // if (snake[0]["x"]>=food["x"] && snake[0]["x"]<=food["x"]){
+   //   if (snake[0]["y"]>=food["y"] && snake[0]["y"]<=food["y"]+box) {
+   //      addSnake();
+   //    }
+   // }
    clear(ctx);
    drawFood();
    for (let i=0;i<snake.length;i++) {
@@ -83,6 +88,14 @@ let newHead= { x: snakeX, y: snakeY};
    snake.unshift(newHead);
    
 }
+function getDistance(x1,y1,x2,y2) {
+   let xDistance=x2-x1;
+   let yDistance=y2-y1;
+
+   return Math.sqrt(Math.pow(xDistance, 2)+ Math.pow(yDistance, 2));
+
+
+}
 function drawFood() {
    ctx.beginPath();
    ctx.arc(food["x"], food['y'],12.5,0,Math.PI * 2);
@@ -96,12 +109,7 @@ function checkHighscore() {
    }
    if (localStorage.getItem("Score")) {
       highscore.innerHTML= "Highscore: "+ localStorage.getItem("Score");
-
    }
-   
-
-
-
 }
  function addSnake() { 
    points++;
@@ -111,11 +119,11 @@ function checkHighscore() {
             snake.push({x:snake[snake.length-1]["x"],y:snake[snake.length-1]["y"]-25});
             food={x:Math.floor(Math.random()*22)*25, y:Math.floor(Math.random()*22)*25};
       }
-       else if (direct==="UP") {
+      else if (direct==="UP") {
           snake.push({x:snake[snake.length-1]["x"],y:snake[snake.length-1]["y"]+25});
           food={x:Math.floor(Math.random()*22)*25, y:Math.floor(Math.random()*22)*25};
        }
-       else if (direct==="RIGHT") {
+      else if (direct==="RIGHT") {
        snake.push({x:snake[snake.length-1]["x"]-25,y:snake[snake.length-1]["y"]});
        food={x:Math.floor(Math.random()*22)*25, y:Math.floor(Math.random()*22)*25};
       

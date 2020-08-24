@@ -1,6 +1,6 @@
 //box geht 22mal in eine länge(550/25) 
-// Try to increase hitbox of food -- add point increment when snake add
-// +add the point to the canvas
+// Try to increase hitbox of food -- 
+
 const canv=document.getElementById("canvas");
 const ctx=canv.getContext("2d");
 const score=document.getElementById("score");
@@ -85,7 +85,7 @@ let newHead= { x: snakeX, y: snakeY};
 }
 function drawFood() {
    ctx.beginPath();
-   ctx.arc(food["x"], food['y'],12.5,0,Math.PI * 3);
+   ctx.arc(food["x"], food['y'],12.5,0,Math.PI * 2);
    ctx.stroke();
 }
 function checkHighscore() {

@@ -3,7 +3,6 @@ const canv=document.getElementById("canvas");
 const ctx=canv.getContext("2d");
 const score=document.getElementById("score");
 const highscore=document.getElementById("highscore");
-let imgName= new Image();
 let box=25;
 let food={x:Math.floor(Math.random()*22)*box, 
 y:Math.floor(Math.random()*20)*box};

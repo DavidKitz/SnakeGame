@@ -1,5 +1,3 @@
-//box geht 22mal in eine länge(550/25) 
-// Try to increase hitbox of food -- 
 
 const canv=document.getElementById("canvas");
 const ctx=canv.getContext("2d");
@@ -62,11 +60,7 @@ function drawIt() {
    if (getDistance(snake[0].x,snake[0].y,food.x,food.y)<30) {
       addSnake();
    }
-   // if (snake[0]["x"]>=food["x"] && snake[0]["x"]<=food["x"]){
-   //   if (snake[0]["y"]>=food["y"] && snake[0]["y"]<=food["y"]+box) {
-   //      addSnake();
-   //    }
-   // }
+   
    clear(ctx);
    drawFood();
    for (let i=0;i<snake.length;i++) {

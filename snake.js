@@ -18,7 +18,7 @@ checkHighscore();
 
 
 document.addEventListener("keydown",move);
-setInterval(drawIt,30);
+setInterval(drawIt,60);
 
  function move(event) {
  if (event.keyCode===38 && direct!=="DOWN") { 

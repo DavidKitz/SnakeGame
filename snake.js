@@ -18,7 +18,7 @@ checkHighscore();
 
 
 document.addEventListener("keydown",move);
-setInterval(drawIt,30);
+setInterval(drawIt,60);
 
  function move(event) {
  if (event.keyCode===38 && direct!=="DOWN") { 
@@ -56,7 +56,7 @@ function drawIt() {
       checkHighscore();
       return;
    }
-   if (getDistance(snake[0].x,snake[0].y,food.x,food.y)<30) {
+   if (getDistance(snake[0].x,snake[0].y,food.x,food.y)<25) {
       addSnake();
    }
    
@@ -91,7 +91,7 @@ function getDistance(x1,y1,x2,y2) {
 }
 function drawFood() {
    ctx.beginPath();
-   ctx.arc(food["x"], food['y'],12.5,0,Math.PI * 2);
+   ctx.rect(food["x"], food['y'],box,box);
    ctx.stroke();
 }
 function checkHighscore() {

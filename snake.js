@@ -3,6 +3,7 @@ const canv=document.getElementById("canvas");
 const ctx=canv.getContext("2d");
 const score=document.getElementById("score");
 const highscore=document.getElementById("highscore");
+const restart=document.getElementById("restart");
 let box=25;
 let food={x:Math.floor(Math.random()*22)*box, 
 y:Math.floor(Math.random()*20)*box};
@@ -11,6 +12,9 @@ let snakeHead=snake[0];
 let points=0;
 let maxpoints=0;
 let direct;
+restart.addEventListener("click", function() {
+   window.location.reload();
+})
 score.innerHTML= points;
 highscore.innerHTML= "Highscore: "+maxpoints;
 canv.style.border="2px solid black";

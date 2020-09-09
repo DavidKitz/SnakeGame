@@ -1,4 +1,17 @@
 #highscore {
-right: -20%;
-position: relative;
+    right: -20%;
+    position: relative;
+   
+    }
+  
+
+button {
+    font-size: 120%;
+    display: flex;
+    margin-left: 250px;
 }
+
+
+	
+
+

@@ -3,7 +3,7 @@
 ## <a href="https://davidkitz.github.io/SnakeGame/"> Play here </a>
 
 # Instructions
- Up Arrow = Move Snake Up
+ Up Arrow = Move Snake Up <br>
  Left Arrow = Move Snake Left
  Right Arrow = Move Snake Right
  Down Arrow = Move Snake Down

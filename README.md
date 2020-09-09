@@ -4,6 +4,6 @@
 
 # Instructions
  Up Arrow = Move Snake Up <br>
- Left Arrow = Move Snake Left
- Right Arrow = Move Snake Right
- Down Arrow = Move Snake Down
+ Left Arrow = Move Snake Left <br>
+ Right Arrow = Move Snake Right <br>
+ Down Arrow = Move Snake Down <br>

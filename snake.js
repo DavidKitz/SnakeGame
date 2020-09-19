@@ -22,7 +22,7 @@ checkHighscore();
 
 
 document.addEventListener("keydown",move);
-setInterval(drawIt,60);
+setInterval(drawIt,80);
 
  function move(event) {
  if (event.keyCode===38 && direct!=="DOWN") { 
